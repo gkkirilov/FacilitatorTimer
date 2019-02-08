@@ -3,6 +3,11 @@
     <span class="timer">
       {{timeLeft}}
     </span>
+    {{ this.currentPath }}
+    <router-link to="/foo">Go to Foo</router-link>
+
+    <h1>{{ new Date() | moment("dddd, MMMM Do YYYY") }}</h1>
+
     <!-- <button @click="startTimer">Start Timer</button> -->
     <button @click="moreTime">+1</button>
   </div>
@@ -18,7 +23,8 @@ export default {
     return {
       startTS: Date.now(),
       timerLength: 300,
-      timeLeft: 300
+      timeLeft: 300,
+      currentPath: window.location.pathname
     }
   },
   computed: {
